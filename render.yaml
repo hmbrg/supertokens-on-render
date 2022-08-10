@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: supertokens
+    env: docker
+    repo: https://github.com/hmbrg/supertokens-on-render.git
+    plan: starter
+    envVars:
+      - key: POSTGRESQL_CONNECTION_URI
+        fromDatabase:
+          name: supertokens-db
+          property: connectionString
+
+databases:
+  - name: supertokens-db
+    plan: starter
+    region: frankfurt
