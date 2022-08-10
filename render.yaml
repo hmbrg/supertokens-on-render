@@ -5,10 +5,30 @@ services:
     repo: https://github.com/hmbrg/supertokens-on-render.git
     plan: starter
     envVars:
-      - key: POSTGRESQL_CONNECTION_URI
+      # - key: POSTGRESQL_CONNECTION_URI
+      #   fromDatabase:
+      #     name: supertokens-db
+      #     property: connectionString
+      - key: POSTGRESQL_USER
         fromDatabase:
           name: supertokens-db
-          property: connectionString
+          property: user
+      - key: POSTGRESQL_PASSWORD
+        fromDatabase:
+          name: supertokens-db
+          property: password
+      - key: POSTGRESQL_DATABASE_NAME
+        fromDatabase:
+          name: supertokens-db
+          property: database
+      - key: POSTGRESQL_HOST
+        fromDatabase:
+          name: supertokens-db
+          property: host
+      - key: POSTGRESQL_PORT
+        fromDatabase:
+          name: supertokens-db
+          property: port
 
 databases:
   - name: supertokens-db
